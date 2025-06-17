@@ -1,0 +1,69 @@
+@use "./variables";
+.footer {
+  background-color: variables.$color-black;
+  padding: 48px 0;
+  &_body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    margin-bottom: 64px;
+    @media (max-width: 834px) {
+      gap: 48px;
+    }
+    @media (max-width: 375px) {
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+  }
+
+  &_link {
+    font-family: variables.$font-open-400, sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: rgba(240, 240, 240, 1);
+    @media (max-width: 1194px) {
+      font-size: 24px;
+    }
+    @media (max-width: 834px) {
+      font-size: 18px;
+    }
+    @media (max-width: 375px) {
+      font-size: 14px;
+    }
+  }
+
+  &_logo {
+    font-family: variables.$font-open-400, sans-serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    color: white;
+    @media (max-width: 1440px) {
+      font-size: 64px;
+    }
+    @media (max-width: 1194px) {
+      font-size: 56px;
+    }
+    @media (max-width: 834px) {
+      font-size: 48px;
+    }
+  }
+
+  &_info {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    font-family: variables.$font-inter, sans-serif;
+    font-size: 32px;
+
+    @media (max-width: 1194px) {
+      font-size: 24px;
+    }
+    @media (max-width: 834px) {
+      font-size: 18px;
+    }
+    @media (max-width: 375px) {
+      font-size: 14px;
+    }
+  }
+}

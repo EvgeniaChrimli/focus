@@ -1,0 +1,52 @@
+@use "./variables";
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  padding: 22px 0;
+  margin-bottom: 129px;
+  @media (max-width: 375px) {
+    gap: 24px;
+    margin-bottom: 10px;
+    align-items: stretch;
+  }
+  &_link {
+    font-family: variables.$font-open-400, sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 400;
+
+    @media (max-width: 1194px) {
+      font-size: 24px;
+    }
+    @media (max-width: 834px) {
+      font-size: 18px;
+    }
+    @media (max-width: 375px) {
+      font-size: 14px;
+      margin-bottom: 80px;
+      padding-top: 5px;
+    }
+  }
+
+  &_logo {
+    font-family: variables.$font-open-400, sans-serif;
+    font-size: 70px;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    @media (max-width: 1440px) {
+      font-size: 64px;
+    }
+    @media (max-width: 1194px) {
+      font-size: 56px;
+    }
+    @media (max-width: 834px) {
+      font-size: 24px;
+    }
+    @media (max-width: 375px) {
+      font-size: 24px;
+    }
+  }
+}
