@@ -1,6 +1,6 @@
 @import "./styles/header", "./styles/top", "./styles/variables",
   "./styles/programs", "./styles/why", "./styles/rewievs", "./styles/bottom",
-  "./styles/footer";
+  "./styles/footer", "./styles/video";
 
 body,
 * {
@@ -45,17 +45,17 @@ li {
   margin: 0 auto;
   max-width: 1600px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1441px) {
   .container {
     max-width: 1280px;
   }
 }
-@media (max-width: 1194px) {
+@media (max-width: 1195px) {
   .container {
     max-width: 932px;
   }
 }
-@media (max-width: 834px) {
+@media (max-width: 835px) {
   .container {
     max-width: 735px;
   }
@@ -64,4 +64,16 @@ li {
   .container {
     max-width: 341px;
   }
+}
+
+[data-animate] path {
+  stroke: black;
+  fill: none;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2.5s ease-out;
+}
+
+[data-animate].animated path {
+  stroke-dashoffset: 0;
 }

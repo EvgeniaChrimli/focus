@@ -1,6 +1,10 @@
 @use "./variables";
 .programs {
   margin-bottom: 128px;
+
+  @media (max-width: 376px) {
+    margin-bottom: 72px;
+  }
   &_title {
     max-width: 1400px;
     margin: 0 auto;
@@ -13,52 +17,57 @@
     flex-wrap: wrap;
     gap: 24px;
 
-    @media (max-width: 1440px) {
+    @media (max-width: 1441px) {
       justify-content: start;
     }
-    @media (max-width: 1194px) {
+    @media (max-width: 1195px) {
       gap: 16px;
       justify-content: center;
     }
     @media (max-width: 716px) {
       gap: 4px;
+    }
+    @media (max-width: 376px) {
       margin: 0 8px;
     }
   }
 
   &_card {
     border-radius: 40px;
-    padding: 40px 21px 24px 48px;
+    padding: 40px 48px 24px 48px;
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 517px;
     background: variables.$color-gradient;
 
-    // Размеры по брейкпоинтам
-    @media (min-width: 835px) {
-      max-width: 517px;
+    @media (max-width: 1441px) {
+      max-width: 408px;
     }
 
-    @media (max-width: 1440px) {
-      max-width: 400px;
-    }
-
-    @media (max-width: 1194px) {
+    @media (max-width: 1195px) {
       max-width: 300px;
+      padding: 32px 23px 24px 48px;
     }
 
-    @media (max-width: 834px) {
-      max-width: 353px;
+    @media (max-width: 836px) {
+      max-width: 340px;
+      padding: 21px 21px 24px 40px;
+      border-radius: 25px;
     }
 
+    @media (max-width: 742px) {
+      max-width: 359px;
+      border-radius: 18px;
+    }
     @media (max-width: 716px) {
+      padding: 24px 16px 17px 32px;
+
       max-width: 100%;
-      flex: 1 1 100%; // чтобы занимали всю ширину
+      flex: 1 1 100%;
     }
 
-    // Расширенные карточки на широком экране
-    @media (min-width: 835px) {
+    @media (min-width: 836px) {
       &:nth-last-child(-n + 2) {
         width: 100%;
         max-width: 789px;
@@ -66,87 +75,32 @@
       }
     }
 
-    // Одна широкая карточка при 734–834px
-    @media (max-width: 834px) and (min-width: 734px) {
+    @media (max-width: 836px) and (min-width: 735px) {
       &:nth-last-child(1) {
         width: 100%;
         max-width: 722px;
         flex: 1 1 auto;
       }
     }
-    // @media (max-width: 1440px) {
-    //   max-width: 400px;
-    // }
-    // @media (max-width: 1194px) {
-    //   max-width: 300px;
-    // }
-    // @media (max-width: 834px) {
-    //   max-width: 353px;
-    // }
-    // @media (min-width: 834px) {
-    //   &:nth-last-child(-n + 2) {
-    //     width: 100%;
-    //     max-width: 789px;
-    //     flex: 1 1;
-    //   }
-    // }
-
-    // @media (max-width: 834px) {
-    //   &:nth-last-child(1) {
-    //     width: 100%;
-    //     max-width: 722px;
-    //     flex: 1 1 auto;
-    //   }
-    // }
-    // @media (min-width: 716px) {
-    //   max-width: 359px;
-    // }
   }
 
   &_card-title {
     margin-bottom: 16px;
     font-family: variables.$font-open-600, sans-serif;
     font-size: 40px;
-    @media (max-width: 1194px) {
-      font-size: 28px;
-    }
+    font-size: clamp(0.875rem, 0.7239rem + 0.6536vw, 1.5rem);
+    font-weight: 600;
   }
 
   &_card-text {
     margin-bottom: 11px;
     font-family: variables.$font-open-400, sans-serif;
-    font-size: 24px;
-    @media (max-width: 1194px) {
-      font-size: 17px;
-    }
+    font-size: clamp(0.875rem, 0.7239rem + 0.6536vw, 1.5rem);
   }
 
   &_card-img {
     width: 100%;
-    max-width: 108px;
+    max-width: clamp(69px, 6vw, 108px);
     margin-left: auto;
-
-    @media (max-width: 1440px) {
-      max-width: 87px;
-    }
-    @media (max-width: 1194px) {
-      max-width: 77px;
-    }
   }
 }
-// .wide {
-//   width: 100%;
-//   max-width: 789px;
-//   flex: 1 1;
-// }
-// @media (max-width: 1440px) {
-//   .wide {
-//     max-width: 628px;
-//   }
-// }
-// @media (max-width: 834px) {
-//   .wide {
-//     max-width: 290px;
-//     flex: 1 1 auto;
-//   }
-// }

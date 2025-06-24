@@ -1,33 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const arrow = document.querySelector(".arrow");
-  const img = document.querySelector(".top_info-img");
-  const svg = document.querySelector(".why_svg");
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        arrow.classList.add("draw");
-        img.classList.add("draw");
-        svg.classList.add("draw");
-      }
-    },
-    { threshold: 0.4 }
-  );
-
-  observer.observe(arrow, img, svg);
-});
-
-const cards = document.querySelectorAll(".why_card");
-
-cards.forEach((card) => {
+document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("click", () => {
-    // Найдём вложенные элементы именно в этом блоке
-    const visible = card.querySelector(".why_card-visible");
-    const active = card.querySelector(".why_card-active");
-
-    // Скрываем visible, показываем active
-    visible.classList.toggle("unvisible");
-    active.classList.toggle("visible");
+    card.classList.toggle("card--flipped");
   });
 });
 
@@ -35,5 +8,39 @@ const swiper = new Swiper("#swiper", {
   direction: "horizontal",
   loop: true,
   slidesPerView: 3,
-  // spaceBetween: 136,
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const svgs = document.querySelectorAll("svg[data-animate]");
+
+  svgs.forEach((svg) => {
+    svg.classList.remove("animated");
+
+    const paths = svg.querySelectorAll("path");
+    paths.forEach((path) => {
+      const length = path.getTotalLength();
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      path.style.transition = "stroke-dashoffset 1.5s ease-out";
+    });
+  });
+
+  function animateOnScroll() {
+    svgs.forEach((svg) => {
+      const rect = svg.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.8;
+
+      if (isVisible && !svg.classList.contains("animated")) {
+        svg.classList.add("animated");
+
+        const paths = svg.querySelectorAll("path");
+        paths.forEach((path) => {
+          path.style.strokeDashoffset = "0";
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", animateOnScroll);
+  animateOnScroll(); // запуск при загрузке
 });

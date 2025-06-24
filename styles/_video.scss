@@ -1,0 +1,49 @@
+.video {
+  position: relative;
+  margin-bottom: 128px;
+
+  @media (max-width: 1195px) {
+    margin-bottom: 155px;
+  }
+  @media (max-width: 850px) {
+    margin-bottom: 128px;
+  }
+  @media (max-width: 376px) {
+    margin-bottom: 72px;
+  }
+
+  &_svg {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 13%;
+    height: auto;
+
+    path {
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+      animation: draw 3.5s ease-out forwards;
+    }
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.video-bg {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.video-bg video {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  border-radius: 40px;
+}
